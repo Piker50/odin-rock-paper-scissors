@@ -1,1 +1,1 @@
-# odin_rockpaperscissors
+# odin_rock-paper-scissors
