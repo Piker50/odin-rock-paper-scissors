@@ -1,25 +1,22 @@
 h1 {
   text-align: center;
 }
-#playfield {
 
-}
-#selectionbar {
+#playfield {
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
   height: 75%;
   width: 100%;
+  border: 1px solid pink;
 }
 
-#container {
-  justify-content: center;
-  align-items: flex-end;
+#selectionbar {
   border: 1px solid navy;
   gap: 15px;
 }
 
-#container button {
+#selectionbar button {
   font-size: 30px;
   width: 50px;
   height: 50px; 

@@ -1,6 +1,6 @@
 let playerScore = 0;
 let computerScore = 0;
-game();
+playerPlay();
 
 function computerPlay() {
   let playVariable = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
@@ -32,20 +32,53 @@ function roundPlay(playerSelection, computerSelection) {
   }
 }
 
-function game() {
-  for (let x = 1; x < 6; x++) {
-    let playerSelection = prompt("Rock Paper or Scissors?").toLowerCase();
-    let computerSelection = computerPlay();
+// function game() {
+//   //for (let x = 1; x < 6; x++) {
+//     let playerSelection;
+//     let computerSelection = computerPlay();
+//     let rock = document.querySelector('#rock');
+//       rock.addEventListener('click', () => {
+//       alert("Hello World");
+//       });
+//     let paper = document.querySelector('#paper');
+//     paper.addEventListener('click', () => {
+//       alert("Hello World");
+//       });
+//     let scissors = document.querySelector('#scissors');
+//     scissors.addEventListener("click", roundPlay(playerSelection, computerSelection));
 
-    if (playerSelection == "rock" || playerSelection == "paper" || playerSelection == "scissors") {
-      console.log("Your choice is " + playerSelection);
-      console.log("Computer selects " + computerSelection);
-      console.log(roundPlay(playerSelection, computerSelection));
-    } else {
-      console.log("Error! Try again!");
+
+//      if (playerSelection == "rock" || playerSelection == "paper" || playerSelection == "scissors") {
+//        console.log("Your choice is " + playerSelection);
+//        console.log("Computer selects " + computerSelection);
+//        console.log(roundPlay(playerSelection, computerSelection));
+//      } else {
+//        console.log("Error! Try again!");
+//      }
+//        console.log("Round " + x);
+
+//      console.log("Your Score " + playerScore);
+//      console.log("Computer Score " + computerScore);
+//   }
+//}
+
+function playerPlay() {
+    let playerSelection;
+    let rock = document.querySelector('#rock');
+    rock.addEventListener('click', () => {
+      alert("Hello World");
+      });
+    let paper = document.querySelector('#paper');
+    paper.addEventListener('click', () => {
+      alert("Hello World");
+      });
+    let scissors = document.querySelector('#scissors');
+    scissors.addEventListener("click", pickedScissors);
+
+    function pickedScissors() {
+      playerSelection = "scissors";
+      console.log(playerSelection);
     }
-    console.log("Round " + x);
-    console.log("Your Score " + playerScore);
-    console.log("Computer Score " + computerScore);
-  }
+
 }
+
