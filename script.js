@@ -1,18 +1,18 @@
 let playerScore = 0;
 let computerScore = 0;
-playerPlay();
 
-function computerPlay() {
-  let playVariable = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
+const buttons = document.querySelectorAll('button');
 
-  if (playVariable === 0) {
-    return "rock";
-  } else if (playVariable === 1) {
-    return "paper";
-  } else if (playVariable === 2) {
-    return "scissors";
-  }
-}
+buttons.forEach((button) => {
+  
+  button.addEventListener('click', () => {
+    if (playerScore >= 5 || computerScore >= 5) {
+      return;
+    }    
+    document.getElementById('button');
+    game(button.id);
+  });
+});
 
 function roundPlay(playerSelection, computerSelection) {
   if (playerSelection == "rock" && computerSelection == "paper") {
@@ -32,53 +32,28 @@ function roundPlay(playerSelection, computerSelection) {
   }
 }
 
-// function game() {
-//   //for (let x = 1; x < 6; x++) {
-//     let playerSelection;
-//     let computerSelection = computerPlay();
-//     let rock = document.querySelector('#rock');
-//       rock.addEventListener('click', () => {
-//       alert("Hello World");
-//       });
-//     let paper = document.querySelector('#paper');
-//     paper.addEventListener('click', () => {
-//       alert("Hello World");
-//       });
-//     let scissors = document.querySelector('#scissors');
-//     scissors.addEventListener("click", roundPlay(playerSelection, computerSelection));
-
-
-//      if (playerSelection == "rock" || playerSelection == "paper" || playerSelection == "scissors") {
-//        console.log("Your choice is " + playerSelection);
-//        console.log("Computer selects " + computerSelection);
-//        console.log(roundPlay(playerSelection, computerSelection));
-//      } else {
-//        console.log("Error! Try again!");
-//      }
-//        console.log("Round " + x);
-
-//      console.log("Your Score " + playerScore);
-//      console.log("Computer Score " + computerScore);
-//   }
-//}
-
-function playerPlay() {
-    let playerSelection;
-    let rock = document.querySelector('#rock');
-    rock.addEventListener('click', () => {
-      alert("Hello World");
-      });
-    let paper = document.querySelector('#paper');
-    paper.addEventListener('click', () => {
-      alert("Hello World");
-      });
-    let scissors = document.querySelector('#scissors');
-    scissors.addEventListener("click", pickedScissors);
-
-    function pickedScissors() {
-      playerSelection = "scissors";
-      console.log(playerSelection);
+function game(buttonPress) {
+    let playerSelection = buttonPress;
+    let computerSelection = computerPlay();
+    if (playerSelection == "rock" || playerSelection == "paper" || playerSelection == "scissors") {
+       console.log("You selected " + playerSelection);
+       console.log("Computer selects " + computerSelection);
+      console.log(roundPlay(playerSelection, computerSelection));
     }
-
+    else {
+      console.log("Error! Try again!");
+    }
+    document.getElementById("score").innerHTML = "Player: " + playerScore + "Computer:" + computerScore;
 }
 
+function computerPlay() {
+  let playVariable = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
+
+  if (playVariable === 0) {
+    return "rock";
+  } else if (playVariable === 1) {
+    return "paper";
+  } else if (playVariable === 2) {
+    return "scissors";
+  }
+}
