@@ -2,6 +2,7 @@ let playerScore = 0;
 let computerScore = 0;
 
 const buttons = document.querySelectorAll('button');
+document.getElementById("score").innerHTML = "Player: " + playerScore + " Computer: " + computerScore;
 
 buttons.forEach((button) => {
   
@@ -35,15 +36,16 @@ function roundPlay(playerSelection, computerSelection) {
 function game(buttonPress) {
     let playerSelection = buttonPress;
     let computerSelection = computerPlay();
-    if (playerSelection == "rock" || playerSelection == "paper" || playerSelection == "scissors") {
-       console.log("You selected " + playerSelection);
-       console.log("Computer selects " + computerSelection);
-      console.log(roundPlay(playerSelection, computerSelection));
+    if (playerScore == 4) {
+      document.getElementById("score").innerHTML = "You WIN!";
+    }
+    else if (computerScore == 4) {
+      document.getElementById("score").innerHTML = "PC WINS!";
     }
     else {
-      console.log("Error! Try again!");
+      roundPlay(playerSelection, computerSelection);
+      document.getElementById("score").innerHTML = "Player: " + playerScore + " Computer: " + computerScore;
     }
-    document.getElementById("score").innerHTML = "Player: " + playerScore + "Computer:" + computerScore;
 }
 
 function computerPlay() {
