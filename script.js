@@ -2,7 +2,7 @@ let playerScore = 0;
 let computerScore = 0;
 
 const buttons = document.querySelectorAll('button');
-document.getElementById("score").innerHTML = "Player: " + playerScore + " Computer: " + computerScore;
+document.getElementById("scoreboard").innerHTML = "Player: " + playerScore + " Computer: " + computerScore;
 
 buttons.forEach((button) => {
   
@@ -37,14 +37,17 @@ function game(buttonPress) {
     let playerSelection = buttonPress;
     let computerSelection = computerPlay();
     if (playerScore == 4) {
-      document.getElementById("score").innerHTML = "You WIN!";
+      document.getElementById("scoreboard").innerHTML = "You WIN!";
     }
     else if (computerScore == 4) {
-      document.getElementById("score").innerHTML = "PC WINS!";
+      document.getElementById("scoreboard").innerHTML = "PC WINS!";
     }
     else {
       roundPlay(playerSelection, computerSelection);
-      document.getElementById("score").innerHTML = "Player: " + playerScore + " Computer: " + computerScore;
+      document.getElementById("scoreboard").innerHTML = "Player: " + playerScore + " Computer: " + computerScore;
+      document.getElementById("playermove").innerHTML = "You picked " + playerSelection;
+      document.getElementById("computermove").innerHTML = "Computer picked " + computerSelection;
+      //document.getElementById("combatlog").innerHTML +=  to follow
     }
 }
 
